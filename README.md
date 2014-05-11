@@ -1,5 +1,7 @@
 # Siteleaf Starter Theme
 
 - Clone into repo
-– Rename appropriately
+- Rename appropriately
 - Connect it to a new Siteleaf site
+- Run siteleaf server
+- Run guard
