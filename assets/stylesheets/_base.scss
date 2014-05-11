@@ -1,0 +1,49 @@
+// Public base -------------------------
+
+html {
+}
+
+body {
+}
+
+p {
+}
+
+em {
+}
+
+img {
+  -ms-interpolation-mode: bicubic;
+}
+
+// Structure  --------------------------
+
+.container {
+  width: mobile_flexgrid(23);
+  margin: auto;
+  @include tablet {
+    margin: auto;
+    max-width: 1440px;
+    width: flexgrid(37);
+  }
+}
+
+// Type  -------------------------------
+
+h3 {
+}
+
+h2 {
+}
+
+ul {
+}
+
+li {
+}
+
+ul li {
+}
+
+ol li{
+}

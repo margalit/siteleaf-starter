@@ -1,0 +1,25 @@
+<!-- Navbar component
+================================================== -->
+<div class="banner">
+  <div class="container">
+    <div class="navbar{{#is title "Home"}} navbar--home{{/is}}" data-view="navigation">
+      <button class="navbar__toggle" type="button" data-behaviour="navigation-toggle">
+        Site Navigation &darr;
+      </button>
+      <div class="navbar__nav" data-behaviour="navigation-list">
+        <ul class="navbar__nav-list">
+          {% assign section = url | remove_first:'/' | split:'/' | first %}
+          {% for page in site.pages | offset: 1 %}
+          <li class="navbar__nav-item{% if section == page.slug %} navbar__nav-item--active{% endif %}">
+            <a href="{{ page.url }}">{{ page.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <a class="navbar__logo" href="/">
+        <img src="/assets/images/logo-mobile@2x.png" alt="">
+        <span>Open Lines</span>
+      </a>
+    </div>
+  </div>
+</div>
