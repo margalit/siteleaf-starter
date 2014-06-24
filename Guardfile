@@ -1,11 +1,25 @@
-guard 'sass', :output => 'assets/stylesheets', :all_on_start => true, :style => :compressed do
-  watch %r{^assets/stylesheets/(.+\.s[ac]ss)$}
-end
+require 'rubygems'
+require 'bundler/setup'
+require './sprockets_helper'
 
-guard 'coffeescript', :output => 'assets/javascripts', :all_on_start => true do
-  watch(%r{^assets/javascripts/(.+\.coffee)})
+guard 'sprockets2',
+  :sprockets => SprocketsHelper.environment,
+  :assets_path => "assets",
+  :precompile => [/\w+\.(?!js|css|scss|coffee).+/, /public.(css|js)$/ ],
+  :digest => false,
+  :gz => false do
+
+  watch(%r{^source/javascripts/.*\.coffee$})
+  watch(%r{^source/fonts/*$})
+  watch(%r{^source/(images|javascripts|stylesheets)/.+$})
+  watch("assets.yml")
 end
 
 guard 'livereload' do
   watch(%r{.+\.(css|js|html)})
+end
+
+# Reload the server on source changes
+guard 'shotgun', :server => 'puma' do
+  watch 'config.ru'
 end

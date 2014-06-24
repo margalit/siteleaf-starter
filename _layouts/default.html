@@ -11,36 +11,33 @@
     <meta name='keywords' content='{{ site.meta.keywords }}'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
-    <meta property="twitter:creator" content="{{ site.meta.twitter }}">
-    <meta property="twitter:title" content="{{ current.title }}">
-    <meta property="twitter:description" content="{{ current.meta.description }}">
+    <!-- for Facebook -->
+    <meta property="og:title" content="{{title}}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="{{permalink}}"/>
+    <meta property="og:image" content="{% for asset in assets limit:1 %}{{asset.permalink}}{% endfor %}"/>
+
+    <!-- for Twitter -->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="{{title}}"/>
+    <meta name="twitter:image" content="{% for asset in assets limit:1 %}{{asset.permalink}}{% endfor %}"/>
 
     <link type="application/rss+xml" rel="alternate" title="{{ site.title }}" href="{{ site.meta.feed_url | fallback: site.feed_url }}">
-    <link href="/assets/stylesheets/public.css" rel="stylesheet" >
+    <link href="/assets/public.css" rel="stylesheet" >
 
     {% include 'includes/fonts' %}
     {% include 'includes/analytics' %}
   </head>
 
-  <body>
-    {% include 'includes/navbar' %}
+    <body>
+
+    {% include 'includes/header' %}
 
     {{ content }}
 
     {% include 'includes/footer' %}
 
-    <!-- Dependencies -->
-    <script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
-
-    <!-- Plugins -->
-    <script src="/assets/javascripts/jquery.js"></script>
-    <script src="/assets/javascripts/jquery.transit.js"></script>
-    <script src="/assets/javascripts/imagesloaded.js"></script>
-    <script src="/assets/javascripts/gmaps.js"></script>
-    <script src="/assets/javascripts/viewloader.js"></script>
-
-    <!-- Main Script -->
-    <script src="/assets/javascripts/main.js"></script>
+    <script type="text/javascript" src="/assets/public.js"></script>
 
   </body>
 </html>

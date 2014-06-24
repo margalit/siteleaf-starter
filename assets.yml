@@ -1,0 +1,7 @@
+assets_paths:
+  - "source/stylesheets"
+  - "source/javascripts"
+  - "source/images"
+  - "source/fonts"
+  - "vendor/stylesheets"
+  - "vendor/javascripts"
